@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  box-sizing: border-box;
+}
+
+.headerBox {
+  background-color: rgb(195, 193, 193);
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mainTitle {
+  display: inline-block;
+  padding-left: 20px;
+}
+
+.categoryBox {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rightHeader {
+  width: 200px;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rightHeader > p {
+  display: inline-block;
+}
