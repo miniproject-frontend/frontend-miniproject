@@ -1,0 +1,31 @@
+.uploadBox {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  max-width: 400px;
+}
+
+.formBox {
+  background-color: rgb(234, 232, 232);
+  border: 2px solid rgb(218, 212, 212);
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  height: 80%;
+  max-height: 550px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.titleBox {
+}
+.contentBox {
+}
+.img {
+}
+.upButton {
+}

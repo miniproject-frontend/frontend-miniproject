@@ -6,6 +6,7 @@
 }
 
 .headerBox {
+  border-bottom: 2px solid black;
   background-color: rgb(195, 193, 193);
   width: 100%;
   height: 50px;
@@ -27,13 +28,15 @@
 }
 
 .rightHeader {
-  width: 200px;
+  width: 300px;
   display: inline-block;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-right: 20px;
 }
 
 .rightHeader > p {
   display: inline-block;
+  margin-right: 60px;
 }
