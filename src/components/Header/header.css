@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  box-sizing: border-box;
+}
+
+.headerBox {
+  border-bottom: 2px solid black;
+  background-color: rgb(195, 193, 193);
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mainTitle {
+  display: inline-block;
+  padding-left: 20px;
+}
+
+.categoryBox {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rightHeader {
+  width: 300px;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.rightHeader > p {
+  display: inline-block;
+  margin-right: 60px;
+}
