@@ -156,7 +156,7 @@ body {
   min-height: 450px;
 }
 
-.inputform input {
+.inputform > input {
   width: 100%;
   height: 40px;
   margin-bottom: 10px;
@@ -166,6 +166,21 @@ body {
 .inputform input:focus {
   outline: none;
   border-bottom: 2px solid #333;
+}
+.inputform div > .overlapInput {
+  width: 70%;
+  height: 40px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #333;
+}
+.inputform .overlapInput:focus {
+  outline: none;
+  border-bottom: 2px solid #333;
+}
+.overlapBtn {
+  display: inline;
+  margin-left: 5px;
 }
 
 .btn {
