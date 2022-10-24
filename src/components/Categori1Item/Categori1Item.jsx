@@ -28,7 +28,7 @@ const Categori1Item = () => {
           </div>
           <div className="PostBox">
             <img src="img/123456.jpg" alt="" />
-            <h2 className="PostTitle">글제목입니다.</h2>
+            <h2 className="PostTitle">글제목입니다.123</h2>
             <div className="PostCont">
               글 내용이 있어요.글 내용이 있어요.글 내용이 있어요.글 내용이
               있어요.글 내용이 있어요.글 내용이 있어요.글 내용이 있어요.글
