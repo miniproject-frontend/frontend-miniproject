@@ -5,7 +5,7 @@ import View from "./components/Pages/View";
 import Write from "./components/Pages/Write";
 
 function App() {
-  return <View />;
+  return <Join />;
 }
 
 export default App;
