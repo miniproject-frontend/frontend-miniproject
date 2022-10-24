@@ -31,9 +31,6 @@
   align-items: center;
   justify-content: space-between;
 }
-.categoryBox > a {
-  margin-left: 160px;
-}
 
 .rightHeader {
   max-width: 100%;
