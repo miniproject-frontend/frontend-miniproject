@@ -6,13 +6,14 @@ const Header = () => {
     <div className="headerBox">
       <img className="logo" src="/HTlogo.png" />
       <div className="categoryBox">
-        <a href="#">카테고리1</a> {/* a는 나중에 다 link로 변경*/}
-        <a href="#">카테고리2</a>
+        <Link href="/category1">카테고리1</Link>{" "}
+        {/* a는 나중에 다 link로 변경*/}
+        <Link href="/category2">카테고리2</Link>
       </div>
       <div className="rightHeader">
         <p>닉네임</p>
-        <a href="#">로그아웃</a>
-        <a href="#">마이페이지</a>
+        <Link href="#">로그아웃</Link>
+        <Link href="/mypage">마이페이지</Link>
       </div>
     </div>
   );
