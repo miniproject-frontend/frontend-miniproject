@@ -4,9 +4,7 @@ import "./header.css";
 const Header = () => {
   return (
     <div className="headerBox">
-      <a href="#" className="mainTitle">
-        홈트
-      </a>
+      <img className="logo" src="/HTlogo.png" />
       <div className="categoryBox">
         <a href="#">카테고리1</a> {/* a는 나중에 다 link로 변경*/}
         <a href="#">카테고리2</a>

@@ -1,13 +1,11 @@
-import Write from "./components/Pages/Write";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 import Join from "./components/Join/Join";
-import "./App.css";
-import Login from "./components/Login/Login";
-import Mypage from "./components/Pages/Mypage";
-import Category1 from "./components/Pages/Category1";
-import Main from "./components/Pages/Main";
+import View from "./components/Pages/View";
+import Write from "./components/Pages/Write";
 
 function App() {
-  return <Category1 />;
+  return <View />;
 }
 
 export default App;
