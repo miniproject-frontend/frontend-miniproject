@@ -29,29 +29,29 @@
 
 // export default joinReducer;
 
-import { createSlice } from "@reduxjs/toolkit";
+// import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  list: [
-    {
-      id: "",
-      memberId: "",
-      nickname: "",
-      password: "",
-    },
-  ],
-};
+// const initialState = {
+//   list: [
+//     {
+//       id: "",
+//       memberId: "",
+//       nickname: "",
+//       password: "",
+//     },
+//   ],
+// };
 
-const JoinSlice = createSlice({
-  name: "joinReducer",
-  initialState,
-  reducers: {
-    joinGogo: (state, action) => {
-      console.log(action.payload);
-      state.list = [...state.list, action.payload];
-    },
-  },
-});
+// const JoinSlice = createSlice({
+//   name: "joinReducer",
+//   initialState,
+//   reducers: {
+//     joinGogo: (state, action) => {
+//       console.log(action.payload);
+//       state.list = [...state.list, action.payload];
+//     },
+//   },
+// });
 
-export const { joinGogo } = JoinSlice.actions;
-export default JoinSlice.reducer;
+// export const { joinGogo } = JoinSlice.actions;
+// export default JoinSlice.reducer;

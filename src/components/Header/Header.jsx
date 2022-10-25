@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="headerBox">
-      <img className="logo" src="/HTlogo.png" />
+      <Link to="/">
+        <img className="logo" src="/HTlogo.png" />
+      </Link>
       <div className="categoryBox">
         <Link to="/category1">카테고리1</Link>
         <Link to="/category2">카테고리2</Link>

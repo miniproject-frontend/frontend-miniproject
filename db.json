@@ -1,0 +1,25 @@
+{
+  "write": [
+    {
+      "id": "QzGrRTcXg",
+      "title": "sdfcvas",
+      "content": "dfasdfas",
+      "img": {},
+      "category": "1"
+    },
+    {
+      "id": "rmvrfvetq",
+      "title": "asdfvczx",
+      "content": "zxcvasv",
+      "image": {},
+      "category": "1"
+    }
+  ],
+  "write2": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "content": "json-server를 배워봅시다."
+    }
+  ]
+}

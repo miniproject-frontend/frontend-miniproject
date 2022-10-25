@@ -1,12 +1,15 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 const Categori1Item = () => {
   return (
     <>
       <div className="container">
         <h1 className="CategoryTitle">카테고리1번</h1>
-        <a className="PostWrite">글쓰기</a>
+        <Link to="/write" className="PostWrite">
+          글쓰기
+        </Link>
         <div className="PostsWrap">
           <div className="PostBox">
             <img src="img/123456.jpg" alt="" />
