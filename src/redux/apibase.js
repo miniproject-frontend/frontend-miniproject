@@ -1,7 +1,8 @@
 import axios from "axios";
 
+//베이스 URL 설정
 const apibase = axios.create({
-  baseURL: "",
+  baseURL: "http://3.36.106.108/",
 });
 
 // 요청 인터셉터(request)
