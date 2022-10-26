@@ -9,6 +9,7 @@ const Categori1Item = () => {
   const mainPost = useSelector((state) => state.postReducer.list);
   const dispatch = useDispatch();
   // console.log(mainPost);
+  console.log(mainPost);
 
   useEffect(() => {
     // console.log("되나?");
