@@ -3,12 +3,12 @@ import { useDispatch } from "react-redux";
 import { __writePost } from "../../redux/modules/postSlice";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import shortid from "shortid";
+// import shortid from "shortid";
 import "./write.css";
 import { useNavigate } from "react-router-dom";
 
 const Write = () => {
-  const [category, setCategory] = useState();
+  const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [image, setimage] = useState(null);
@@ -17,6 +17,7 @@ const Write = () => {
 
   const categoryChangeHandler = (e) => {
     setCategory(e.target.value);
+    // console.log(e.target.value);
   };
 
   const writeSubmitHandler = (e) => {
@@ -24,7 +25,6 @@ const Write = () => {
     if (title === "" || content === "") return;
     dispatch(
       __writePost({
-        id: shortid.generate(),
         title,
         content,
         image,
