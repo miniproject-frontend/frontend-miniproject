@@ -76,10 +76,9 @@ const Join = () => {
     } else {
       dispatch(
         createUser({
-          email: user.email,
+          memberid: user.email,
           nickname: user.nickname,
           password: user.password,
-          passwordC: user.passwordC,
         })
       );
       navigate("/login");

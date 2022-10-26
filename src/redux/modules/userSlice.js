@@ -16,7 +16,10 @@ export const createUser = (data) => {
   return async function (dispatch) {
     console.log(data);
     await apibase
-      .post("member/signup", data)
+      .post("api/member/signup", data, {
+        "Content-Type": "application/json",
+        withCredentials: true,
+      })
       .then((response) => {
         console.log(response);
         if (response.data.success === false) {
@@ -31,9 +34,7 @@ export const createUser = (data) => {
         }
       })
       .catch((error) => {
-        if (error.response.status === 400) {
-          alert(error.response.data.message);
-        }
+        alert(error.response);
       });
   };
 };
@@ -41,7 +42,7 @@ export const createUser = (data) => {
 export const loginUser = (data) => {
   return async function (dispatch) {
     await apibase
-      .post("members/login", data, {
+      .post("api/member/login", data, {
         "Content-Type": "application/json",
         withCredentials: true,
       })
@@ -55,7 +56,7 @@ export const loginUser = (data) => {
             window.location.replace("/")
           );
         } else {
-          return window.alert(response.data.error.msg);
+          return window.alert(response.data.error.message);
         }
       })
       .catch((err) => {

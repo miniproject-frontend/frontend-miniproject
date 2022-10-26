@@ -26,7 +26,7 @@ const Login = () => {
     event.preventDefault();
     dispatch(
       loginUser({
-        email: member.email,
+        memberid: member.email,
         password: member.password,
       })
     );
@@ -45,12 +45,14 @@ const Login = () => {
           />
           <input
             name="password"
-            type="passward"
+            type="password"
             placeholder="비밀번호를 입력해주세요."
             onChange={onChangeHandler}
           />
-          <button className="LoginBtn">로그인</button>
-          <a className="GotoSignUp" onClick={Login}>
+          <button className="LoginBtn" onClick={Login}>
+            로그인
+          </button>
+          <a className="GotoSignUp" onClick={() => navigate("/join")}>
             회원가입
           </a>
         </div>
