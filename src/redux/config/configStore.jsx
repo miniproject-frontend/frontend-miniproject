@@ -3,7 +3,7 @@
 // import joinReducer from "../modules/joinReducer.js";
 
 import { configureStore } from "@reduxjs/toolkit";
-// import joinReducer from "../modules/joinSlice";
+import joinReducer from "../modules/userSlice";
 import postReducer from "../modules/postSlice";
 // import getReducer from "../modules/mainSlice";
 
@@ -12,6 +12,7 @@ import postReducer from "../modules/postSlice";
 // });
 const store = configureStore({
   reducer: { postReducer },
+  reducer: { joinReducer: joinReducer },
 });
 
 export default store;

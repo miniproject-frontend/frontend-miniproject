@@ -3,6 +3,8 @@ import "./style.css";
 import Header from "../Header/Header";
 
 const MypageItem = () => {
+  const nickname = sessionStorage.getItem("nickname");
+
   //내가 작성한 글 클릭하면 보여주기
   const PostOpen = () => {
     document.getElementById("MyPost").style.display = "block";
@@ -21,7 +23,7 @@ const MypageItem = () => {
       <div className="container">
         <div className="MypageWrap">
           <div className="MypageInfo">
-            <div className="UserName">닉네임</div>
+            <div className="UserName">{nickname}</div>
             <div className="UserInfo">
               <div className="UserWrite" id="test1" onClick={PostOpen}>
                 내가 작성한 글
@@ -44,105 +46,10 @@ const MypageItem = () => {
                     </p>
                   </div>
                 </div>
-                <div className="InfoBox">
-                  <img src="img/123456.jpg" alt="" />
-                  <div className="TextBox">
-                    <h3>제목입니다</h3>
-                    <p>내용입니다.</p>
-                  </div>
-                </div>
-                <div className="InfoBox">
-                  <img src="img/9542.jpg" alt="" />
-                  <div className="TextBox">
-                    <h3>제목입니다</h3>
-                    <p>내용입니다.</p>
-                  </div>
-                </div>
-                <div className="InfoBox">
-                  <img src="img/9542.jpg" alt="" />
-                  <div className="TextBox">
-                    <h3>제목입니다</h3>
-                    <p>내용입니다.</p>
-                  </div>
-                </div>
-                <div className="InfoBox">
-                  <img src="img/9542.jpg" alt="" />
-                  <div className="TextBox">
-                    <h3>제목입니다</h3>
-                    <p>내용입니다.</p>
-                  </div>
-                </div>
-                <div className="InfoBox">
-                  <img src="img/9542.jpg" alt="" />
-                  <div className="TextBox">
-                    <h3>제목입니다</h3>
-                    <p>내용입니다.</p>
-                  </div>
-                </div>
-                <div className="InfoBox">
-                  <img src="img/9542.jpg" alt="" />
-                  <div className="TextBox">
-                    <h3>제목입니다</h3>
-                    <p>내용입니다.</p>
-                  </div>
-                </div>
-                <div className="InfoBox">
-                  <img src="img/9542.jpg" alt="" />
-                  <div className="TextBox">
-                    <h3>제목입니다</h3>
-                    <p>내용입니다.</p>
-                  </div>
-                </div>
-                <div className="InfoBox">
-                  <img src="img/9542.jpg" alt="" />
-                  <div className="TextBox">
-                    <h3>제목입니다</h3>
-                    <p>내용입니다.</p>
-                  </div>
-                </div>
               </div>
             </div>
             <div className="MyComment" id="MyComment">
               <h2>내가 작성한 댓글</h2>
-              <div className="MyCommentInfo">
-                <div className="MyCommentTitle">
-                  <div className="PostTitle">댓글작성한 게시글 제목</div>
-                  <div className="WriteTime">2022-01-01</div>
-                </div>
-                <p>댓글내용입니다.</p>
-              </div>
-              <div className="MyCommentInfo">
-                <div className="MyCommentTitle">
-                  <div className="PostTitle">댓글작성한 게시글 제목</div>
-                  <div className="WriteTime">2022-01-01</div>
-                </div>
-                <p>댓글내용입니다.</p>
-              </div>
-              <div className="MyCommentInfo">
-                <div className="MyCommentTitle">
-                  <div className="PostTitle">댓글작성한 게시글 제목</div>
-                  <div className="WriteTime">2022-01-01</div>
-                </div>
-                <p>댓글내용입니다.</p>
-              </div>
-              <div className="MyCommentInfo">
-                <div className="MyCommentTitle">
-                  <div className="PostTitle">댓글작성한 게시글 제목</div>
-                  <div className="WriteTime">2022-01-01</div>
-                </div>
-                <p>댓글내용입니다.</p>
-              </div>
-              <div className="MyCommentInfo">
-                <div className="MyCommentTitle">
-                  <div className="PostTitle">댓글작성한 게시글 제목</div>
-                  <div className="WriteTime">2022-01-01</div>
-                </div>
-                <p>
-                  댓글내용입니다.댓글내용입니다.댓글내용입니다.댓글내용입니다.댓글내용입니다.댓글내용입니다.댓글내용입니다.댓글내용입니다.댓글내용입니다.댓글내용입니다.댓글내용입니다.
-                  댓글내용입니다.댓글내용입니다.댓글내용입니다.댓글내용입니다.댓글내용입니다.댓글내용입니다.댓글내용입니다.댓글내용입니다.
-                  댓글내용입니다.댓글내용입니다.
-                </p>
-              </div>
               <div className="MyCommentInfo">
                 <div className="MyCommentTitle">
                   <div className="PostTitle">댓글작성한 게시글 제목</div>
