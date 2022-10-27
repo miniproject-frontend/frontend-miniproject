@@ -3,10 +3,8 @@ import "./Login.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { loginUser } from "../../redux/modules/userSlice";
 import apibase from "../../redux/apibase";
-import { useCookies } from "react-cookie";
-import Cookies from "universal-cookie";
+import { setCookie } from "../../shared/cookies";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -17,10 +15,6 @@ const Login = () => {
   };
 
   const [member, setMember] = useState(loginform);
-
-  const [cookies, setCookie, removeCookie] = useCookies(["cook"]);
-
-  const cookie = new Cookies();
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;

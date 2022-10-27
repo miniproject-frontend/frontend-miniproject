@@ -25,13 +25,13 @@ const Mainitem = () => {
             <div className="CardCont">{main.content}</div>
           </div>
         ))} */}
-        {mainPost.map((main) => {
-          if (main.category === "SHOULDER") {
+        {mainPost?.map((main) => {
+          if (main?.category === "SHOULDER") {
             return (
-              <div className="CateCard" key={main.id}>
+              <div className="CateCard" key={main?.id}>
                 <img src="img/9542.jpg" alt="" />
-                <div className="CardTitle">{main.title}</div>
-                <div className="CardCont">{main.content}</div>
+                <div className="CardTitle">{main?.title}</div>
+                <div className="CardCont">{main?.content}</div>
               </div>
             );
           } else {

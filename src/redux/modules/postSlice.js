@@ -1,12 +1,20 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import apibase from "../apibase";
+import { getCookie } from "../../shared/cookies";
 
 export const __writePost = createAsyncThunk(
   "WRITE_POST",
   async (payload, thunkAPI) => {
     try {
-      const post = await apibase.post("api/board", payload);
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${getCookie("token")}`,
+        },
+      };
+      console.log(payload);
+      const post = await apibase.post("api/board", payload, config);
       // console.log(post);
       return thunkAPI.fulfillWithValue(post.data);
     } catch (error) {
