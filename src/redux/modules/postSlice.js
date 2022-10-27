@@ -4,7 +4,6 @@ import axios from "axios";
 import apibase from "../apibase";
 import { getCookie } from "../../shared/cookies";
 
-
 export const __writePost = createAsyncThunk(
   "WRITE_POST",
   async (payload, thunkAPI) => {
@@ -14,7 +13,7 @@ export const __writePost = createAsyncThunk(
         url: `http://3.36.106.108/api/board`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${getCookie("accessToken")}`,
+          Authorization: `${getCookie("token")}`,
         },
         data: payload,
       });
@@ -35,9 +34,10 @@ export const __mainPost = createAsyncThunk(
         url: `http://3.36.106.108/api/boards`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${getCookie("accessToken")}`,
+          Authorization: `${getCookie("token")}`,
         },
       });
+      console.log(getPost.data);
       return thunkAPI.fulfillWithValue(getPost.data);
     } catch (error) {
       console.log("메인 get요청 에러");
@@ -55,7 +55,7 @@ export const __viewContentPut = createAsyncThunk(
         url: `http://3.36.106.108/api/board/${payload.id}`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${getCookie("accessToken")}`,
+          Authorization: `${getCookie("token")}`,
         },
         data: payload,
       });
@@ -75,7 +75,7 @@ export const __viewContentGet = createAsyncThunk(
         url: `http://3.36.106.108/api/board/`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${getCookie("accessToken")}`,
+          Authorization: `${getCookie("token")}`,
         },
       });
       return thunkAPI.fulfillWithValue(fixPost.data);
@@ -84,6 +84,7 @@ export const __viewContentGet = createAsyncThunk(
     }
   }
 );
+
 // export const __viewDetail = createAsyncThunk(
 //   "FIXED_CONTENT_GET",
 //   async (payload, thunkAPI) => {
@@ -113,7 +114,7 @@ export const __deletePost = createAsyncThunk(
         url: `http://3.36.106.108/api/board/${payload}`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${getCookie("accessToken")}`,
+          Authorization: `${getCookie("token")}`,
         },
       });
       // "http://3.34.146.3/api/boards"
