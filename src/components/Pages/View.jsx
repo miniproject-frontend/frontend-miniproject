@@ -24,10 +24,14 @@ const View = () => {
   const view = useSelector((state) => state.postReducer.list);
   // const [fixContent, setFixContent] = useState(view.content);
   const viewId = view.filter((view) => view.id === Number(id))[0];
+  console.log(view);
+  console.log(viewId);
 
   const contentPopClick = () => {
     setContentPop(!contentPop);
   };
+
+  console.log(id);
 
   // const commentPopClick = () => {
   //   return setCommentPop(!commentPop);
@@ -37,9 +41,9 @@ const View = () => {
     dispatch(__mainPost());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(__viewContentGet());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(__viewContentGet());
+  // }, []);
 
   const deletePostClick = (id) => {
     dispatch(__deletePost(id));
@@ -65,9 +69,9 @@ const View = () => {
       <div className="viewHoleBox">
         <div className="viewBox">
           <div className="viewTop">
-            <h1>{viewId?.title}</h1>
-            <p>작성자 : ssg</p>
-            <p>등록일 : 2022.10.27{/*{viewId.createdAt}*/}</p>
+            <h1>{viewId.title}</h1>
+            <p>{viewId.author}</p>
+            <p>{viewId.modifiedAt.substring(0, 10)}</p>
           </div>
           <p className="viewContent">{viewId.content}</p>
         </div>

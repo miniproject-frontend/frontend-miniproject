@@ -9,6 +9,11 @@ const Mainitem = () => {
   const mainPost = useSelector((state) => state.postReducer.list);
   const dispatch = useDispatch();
 
+  const BACK = mainPost.filter((el) => el.category !== "SHOULDER");
+  const SHOULDER = mainPost.filter((el) => el.category !== "BACK");
+
+  console.log(mainPost);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,11 +23,11 @@ const Mainitem = () => {
   return (
     <div className="container">
       <div className="CateWrap">
-
         <h1 className="CateName">홈트레이닝</h1>
         {/* 백에서 주는 카테고리명은 SHOULDER */}
-        {mainPost.map((main) => {
-          if (main.category === "1") {
+        {SHOULDER.map((main, index) => {
+          if (index < 4) {
+            console.log(index);
             return (
               <div
                 className="CateCard"
@@ -34,7 +39,6 @@ const Mainitem = () => {
                 <img src="img/123456.jpg" alt="" />
                 <div className="CardTitle">{main.title}</div>
                 <div className="CardCont">{main.content}</div>
-
               </div>
             );
           } else {
@@ -49,8 +53,8 @@ const Mainitem = () => {
       <div className="CateWrap">
         <h1 className="CateName">운동게시판</h1>
         {/* 백에서 주는 카테고리명은 BACK */}
-        {mainPost.map((main) => {
-          if (main.category === "2") {
+        {BACK.map((main, index) => {
+          if (index < 4) {
             return (
               <div
                 className="CateCard"
