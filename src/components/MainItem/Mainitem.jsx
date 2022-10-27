@@ -18,6 +18,7 @@ const Mainitem = () => {
   return (
     <div className="container">
       <div className="CateWrap">
+
         <h1 className="CateName">홈트레이닝</h1>
         {/* 백에서 주는 카테고리명은 SHOULDER */}
         {mainPost.map((main) => {
@@ -33,6 +34,7 @@ const Mainitem = () => {
                 <img src="img/123456.jpg" alt="" />
                 <div className="CardTitle">{main.title}</div>
                 <div className="CardCont">{main.content}</div>
+
               </div>
             );
           } else {

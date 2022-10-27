@@ -1,11 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+
+import apibase from "../apibase";
 import { getCookie } from "../../shared/cookies";
 
-// import apibase from "../apibase";
-
-// "http://3.34.146.3/api/boards"
-// "http://3.36.106.108/api/boards"
 
 export const __writePost = createAsyncThunk(
   "WRITE_POST",
@@ -20,6 +18,7 @@ export const __writePost = createAsyncThunk(
         },
         data: payload,
       });
+
       return thunkAPI.fulfillWithValue(post.data);
     } catch (error) {
       console.log("글 작성 post요청 에러");

@@ -3,24 +3,27 @@ import "./header.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
+import { logout } from "../../shared/cookies";
+import { getCookie } from "../../shared/cookies";
 
 const Header = () => {
   const navigate = useNavigate();
 
   const nickname = sessionStorage.getItem("nickname");
+  const token = getCookie("token");
 
   //로그인할때 세션스토리지에 저장했던 닉네임 불러오기
 
-  // useEffect(() => {
-  //   if (!token) {
-  //     navigate("/login");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, [token]);
 
   //로그아웃하는 버튼
-  const logOut = () => {
-    // alert("로그아웃 되었습니다.");
-    // window.location.replace("/");
+  const UserLogout = () => {
+    logout();
+    alert("로그아웃 되었습니다.");
   };
 
   const cookie = new Cookies();
@@ -34,7 +37,7 @@ const Header = () => {
       <div className="rightHeader">
         <p>{nickname}님 환영합니다</p>
 
-        <Link href="#" onClick={logOut}>
+        <Link href="#3" onClick={UserLogout}>
           로그아웃
         </Link>
         <Link to="/mypage">마이페이지</Link>
