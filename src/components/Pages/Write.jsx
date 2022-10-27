@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Write = () => {
   const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [desc, setdesc] = useState("");
   const [image, setimage] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,12 +21,12 @@ const Write = () => {
 
   const writeSubmitHandler = (e) => {
     // e.preventDefault();
-    if (title === "" || content === "") return;
+    if (title === "" || desc === "") return;
     dispatch(
       __writePost({
         id: Math.random(),
         title,
-        content,
+        desc,
         image,
         category,
       })
@@ -79,9 +79,9 @@ const Write = () => {
             className="contentBox"
             type="text"
             placeholder="내용을 입력하세요"
-            value={content}
+            value={desc}
             onChange={(e) => {
-              return setContent(e.target.value);
+              return setdesc(e.target.value);
             }}
           ></textarea>
           <input

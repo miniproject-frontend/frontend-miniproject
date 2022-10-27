@@ -26,23 +26,17 @@ const Login = () => {
   //
   console.log(member);
 
+  //로그인 시도 함수
   const Login = (event) => {
     event.preventDefault();
     const temp = {
       memberid: member.email,
       password: member.password,
     };
-    // 이메일 비밀번호 BE양식 : nickname:~, password: ~
     const data = apibase
       .post("api/member/login", temp)
       .then((res) => {
-        //const { accessToken } = res.data;
-        //axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
-        // accessToken을 헤더에 붙여주는 과정이지만, instance에서 이미실행
         console.log(res);
-        console.log(res.data);
-        console.log(res.request.getResponseHeader("authorization"));
-        // access 토큰을 받아와짐.
         setCookie("token", res.request.getResponseHeader("authorization"));
         setCookie(
           "refreshToken",
@@ -51,10 +45,7 @@ const Login = () => {
         sessionStorage.setItem("nickname", res.data.data.nickname);
         alert(`${sessionStorage.nickname}님 환영합니다.`);
         window.location.replace("/");
-        // setCookie를 사용해 application>cookie에 토큰 2개담기
         if (res.data.success === false) alert(res.data.error.message);
-        //setInterval(onSilentRefresh, 180000);
-        // 3분뒤 로그인 연장
       })
       .catch((error) => {
         alert("로그인 정보를 받아올 수 없습니다!");
