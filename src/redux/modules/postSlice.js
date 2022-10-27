@@ -5,8 +5,7 @@ export const __writePost = createAsyncThunk(
   "WRITE_POST",
   async (payload, thunkAPI) => {
     try {
-      const post = await axios.post("http://3.34.146.3/api/board", payload);
-      // console.log(post);
+      const post = await axios.post("http://3.36.106.108/api/board", payload);
       return thunkAPI.fulfillWithValue(post.data);
     } catch (error) {
       console.log("글 작성 post요청 에러");
@@ -18,12 +17,60 @@ export const __mainPost = createAsyncThunk(
   "MAIN_POST",
   async (payload, thunkAPI) => {
     try {
-      const getPost = await axios.get("http://3.34.146.3/api/boards");
+      const getPost = await axios.get("http://3.36.106.108/api/boards");
+      // "http://3.34.146.3/api/boards"
+      // "http://3.36.106.108/api/boards"
       // console.log(getPost.data);
       // console.log(getPost);
       return thunkAPI.fulfillWithValue(getPost.data);
     } catch (error) {
       console.log("메인 get요청 에러");
+    }
+  }
+);
+
+export const __viewContentPut = createAsyncThunk(
+  "FIX_CONTENT_POST",
+  async (payload, thunkAPI) => {
+    try {
+      console.log(payload);
+      const fixContentPost = await axios.put(
+        `http://3.36.106.108/api/board/${payload.id}`
+        // `http://localhost:3001/write/${payload.id}`
+      );
+      return thunkAPI.fulfillWithValue(fixContentPost.data);
+    } catch (error) {
+      console.log("CONTENT내용 수정요청 에러");
+    }
+  }
+);
+
+export const __viewContentGet = createAsyncThunk(
+  "FIX_CONTENT_GET",
+  async (payload, thunkAPI) => {
+    console.log(payload);
+    try {
+      const fixPost = await axios.get(
+        `http://3.36.106.108/api/board/${payload.id}`
+      );
+      return thunkAPI.fulfillWithValue(fixPost.data);
+    } catch (error) {
+      console.log("CONTENT내용 수정 get요청 에러");
+    }
+  }
+);
+
+export const __deletePost = createAsyncThunk(
+  "DELETE_POST",
+  async (payload, thunkAPI) => {
+    try {
+      const deletePost = await axios.delete(
+        `http://3.36.106.108/api/board/${payload}`
+      );
+      // "http://3.34.146.3/api/boards"
+      return thunkAPI.fulfillWithValue(deletePost.data);
+    } catch (error) {
+      console.log("POST내용 삭제중 delete요청 에러");
     }
   }
 );
@@ -43,8 +90,17 @@ const PostSlice = createSlice({
     [__writePost.fulfilled]: (state, action) => {
       state.list = [...state.list, action.payload];
     },
+    [__viewContentPut.fulfilled]: (state, action) => {
+      state.list = action.payload;
+    },
     [__mainPost.fulfilled]: (state, action) => {
       state.list = action.payload;
+    },
+    [__viewContentGet.fulfilled]: (state, action) => {
+      state.list = action.payload;
+    },
+    [__deletePost.fulfilled]: (state, action) => {
+      state.list = state.list.filter((x) => x.id !== action.payload);
     },
   },
 });
