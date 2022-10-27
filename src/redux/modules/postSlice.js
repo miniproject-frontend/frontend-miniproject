@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import apibase from "../apibase";
 
 export const __writePost = createAsyncThunk(
   "WRITE_POST",
   async (payload, thunkAPI) => {
     try {
-      const post = await axios.post("http://3.34.146.3/api/board", payload);
+      const post = await apibase.post("api/board", payload);
       // console.log(post);
       return thunkAPI.fulfillWithValue(post.data);
     } catch (error) {
@@ -18,7 +19,7 @@ export const __mainPost = createAsyncThunk(
   "MAIN_POST",
   async (payload, thunkAPI) => {
     try {
-      const getPost = await axios.get("http://3.34.146.3/api/boards");
+      const getPost = await apibase.get("api/boards");
       // console.log(getPost.data);
       // console.log(getPost);
       return thunkAPI.fulfillWithValue(getPost.data);

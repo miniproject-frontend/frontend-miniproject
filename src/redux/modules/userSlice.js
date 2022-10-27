@@ -53,7 +53,8 @@ export const loginUser = (data) => {
             sessionStorage.setItem("token", response.headers.authorization),
             sessionStorage.setItem("nickname", response.data.data.nickname),
             alert(`${sessionStorage.nickname}님 환영합니다.`),
-            window.location.replace("/")
+            // window.location.replace("/")
+            console.log(response.headers.authorization)
           );
         } else {
           return window.alert(response.data.error.message);
@@ -64,7 +65,6 @@ export const loginUser = (data) => {
       });
   };
 };
-
 
 // const JoinSlice = createSlice({
 //   name: "joinReducer",
