@@ -16,14 +16,14 @@ const Categori1Item = () => {
   return (
     <>
       <div className="container">
-        <h1 className="CategoryTitle">홈트레이닝</h1>
+        <h1 className="CategoryTitle">운동게시판</h1>
         <Link to="/write" className="PostWrite">
           글쓰기
         </Link>
         <div className="PostsWrap">
           {/* 백에서 주는 카테고리명은 SHOULDER */}
           {mainPost.map((main) => {
-            if (main.category === "1") {
+            if (main.category === "2") {
               return (
                 <div
                   className="PostBox"
@@ -32,7 +32,7 @@ const Categori1Item = () => {
                     navigate(`view/${main.id}`);
                   }}
                 >
-                  <img src="img/123456.jpg" alt="" />
+                  <img src="img/9542.jpg" alt="" />
                   <h2 className="PostTitle">{main.title}</h2>
                   <div className="PostCont">{main.content}</div>
                 </div>

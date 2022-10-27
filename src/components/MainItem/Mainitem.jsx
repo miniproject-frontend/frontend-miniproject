@@ -3,35 +3,38 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { __mainPost } from "../../redux/modules/postSlice";
+import { useNavigate } from "react-router-dom";
 
 const Mainitem = () => {
   const mainPost = useSelector((state) => state.postReducer.list);
   const dispatch = useDispatch();
-  console.log(mainPost);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("되나?");
     dispatch(__mainPost());
   }, [dispatch]);
 
   return (
     <div className="container">
       <div className="CateWrap">
-        <h1 className="CateName">카테고리1</h1>
-        {/* {mainPost.map((main) => (
-          <div className="CateCard" key={main.id}>
-            <img src="img/9542.jpg" alt="" />
-            <div className="CardTitle">{main.title}</div>
-            <div className="CardCont">{main.content}</div>
-          </div>
-        ))} */}
-        {mainPost?.map((main) => {
-          if (main?.category === "SHOULDER") {
+
+        <h1 className="CateName">홈트레이닝</h1>
+        {/* 백에서 주는 카테고리명은 SHOULDER */}
+        {mainPost.map((main) => {
+          if (main.category === "1") {
             return (
-              <div className="CateCard" key={main?.id}>
-                <img src="img/9542.jpg" alt="" />
-                <div className="CardTitle">{main?.title}</div>
-                <div className="CardCont">{main?.content}</div>
+              <div
+                className="CateCard"
+                key={main.id}
+                onClick={() => {
+                  navigate(`view/${main.id}`);
+                }}
+              >
+                <img src="img/123456.jpg" alt="" />
+                <div className="CardTitle">{main.title}</div>
+                <div className="CardCont">{main.content}</div>
+
               </div>
             );
           } else {
@@ -44,11 +47,18 @@ const Mainitem = () => {
         </div>
       </div>
       <div className="CateWrap">
-        <h1 className="CateName">카테고리2</h1>
+        <h1 className="CateName">운동게시판</h1>
+        {/* 백에서 주는 카테고리명은 BACK */}
         {mainPost.map((main) => {
-          if (main.category === "BACK") {
+          if (main.category === "2") {
             return (
-              <div className="CateCard" key={main.id}>
+              <div
+                className="CateCard"
+                key={main.id}
+                onClick={() => {
+                  navigate(`view/${main.id}`);
+                }}
+              >
                 <img src="img/9542.jpg" alt="" />
                 <div className="CardTitle">{main.title}</div>
                 <div className="CardCont">{main.content}</div>
