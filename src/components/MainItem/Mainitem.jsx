@@ -7,10 +7,10 @@ import { __mainPost } from "../../redux/modules/postSlice";
 const Mainitem = () => {
   const mainPost = useSelector((state) => state.postReducer.list);
   const dispatch = useDispatch();
-  // console.log(mainPost);
+  console.log(mainPost);
 
   useEffect(() => {
-    // console.log("되나?");
+    console.log("되나?");
     dispatch(__mainPost());
   }, [dispatch]);
 

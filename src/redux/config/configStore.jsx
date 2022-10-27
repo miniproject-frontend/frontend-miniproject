@@ -12,7 +12,7 @@ import postReducer from "../modules/postSlice";
 // });
 const store = configureStore({
   reducer: { postReducer },
-  reducer: { joinReducer: joinReducer },
+  // reducer: { joinReducer },
 });
 
 export default store;

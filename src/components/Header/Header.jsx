@@ -2,29 +2,28 @@ import React, { useEffect } from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 const Header = () => {
   const navigate = useNavigate();
 
-  //로그인할때 세션스토리지에 저장했던 닉네임 불러오기
   const nickname = sessionStorage.getItem("nickname");
 
-  console.log(nickname);
+  //로그인할때 세션스토리지에 저장했던 닉네임 불러오기
 
-  useEffect(() => {
-    if (!nickname) {
-      navigate("/login");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!token) {
+  //     navigate("/login");
+  //   }
+  // }, []);
 
   //로그아웃하는 버튼
   const logOut = () => {
-    sessionStorage.clear();
-    // cookies.remove("refresh-token");
-    alert("로그아웃 되었습니다.");
-    window.location.replace("/");
+    // alert("로그아웃 되었습니다.");
+    // window.location.replace("/");
   };
 
+  const cookie = new Cookies();
   return (
     <div className="headerBox">
       <img className="logo" src="/HTlogo.png" onClick={() => navigate("/")} />
