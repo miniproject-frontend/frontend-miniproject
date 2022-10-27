@@ -6,8 +6,9 @@ import {
   __viewContentGet,
   __mainPost,
   __deletePost,
+  __viewDetail,
 } from "../../redux/modules/postSlice";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import "./view.css";
 import { useParams } from "react-router-dom";
@@ -15,8 +16,8 @@ import { useNavigate } from "react-router-dom";
 
 const View = () => {
   const [contentPop, setContentPop] = useState(false);
-  const [comment, setComment] = useState("");
-  const [commentPop, setCommentPop] = useState(false);
+  // const [comment, setComment] = useState("");
+  // const [commentPop, setCommentPop] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -28,31 +29,34 @@ const View = () => {
     setContentPop(!contentPop);
   };
 
-  const commentPopClick = () => {
-    return setCommentPop(!commentPop);
-  };
+  // const commentPopClick = () => {
+  //   return setCommentPop(!commentPop);
+  // };
 
   useEffect(() => {
     dispatch(__mainPost());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(__viewContentGet());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(__viewContentGet());
+  }, [dispatch]);
 
   const deletePostClick = (id) => {
     dispatch(__deletePost(id));
     navigate("/");
   };
 
-  const fixContentSubmitHandler = (id) => {
-    // dispatch(
-    //   __viewContentPut({
-    //     id,
-    //     fixContent,
-    //   })
-    // );
-  };
+  // const fixContentSubmitHandler = async (e) => {
+  //   e.preventDefault();
+  //   const fixGo = {
+  //     ...view,
+  //     id: viewId.id,
+  //     content: fixContent,
+  //   };
+  //   await dispatch(__viewContentPut(fixGo));
+  //   await dispatch(__viewDetail(id));
+  //   navigate(`/view/${id}`);
+  // };
 
   return (
     <div>
@@ -67,9 +71,6 @@ const View = () => {
           </div>
           <p className="viewContent">{viewId.content}</p>
         </div>
-        {/* {changedContent.map((changed) => {
-            <p className="viewContent">{changed.content}</p>;
-          })} */}
       </div>
       {/*  */}
       <div className="viewBtn">
@@ -79,7 +80,7 @@ const View = () => {
       {contentPop && (
         <form
           className="contentPopInput"
-          onSubmit={fixContentSubmitHandler(viewId.id)}
+          // onSubmit={fixContentSubmitHandler(viewId.id)}
         >
           <textarea
             type="text"
@@ -88,7 +89,7 @@ const View = () => {
               // return setFixContent(e.target.value);
             }}
           ></textarea>
-          <button>수정</button>
+          <button className="fixBtn">수정</button>
         </form>
       )}
       {/*  */}

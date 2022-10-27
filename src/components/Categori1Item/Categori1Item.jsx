@@ -23,7 +23,7 @@ const Categori1Item = () => {
         <div className="PostsWrap">
           {/* 백에서 주는 카테고리명은 SHOULDER */}
           {mainPost.map((main) => {
-            if (main.category === "SHOULDER") {
+            if (main.category === "1") {
               return (
                 <div
                   className="PostBox"

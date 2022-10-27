@@ -1,12 +1,11 @@
-import React from "react";
 import "./Login.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { loginUser } from "../../redux/modules/userSlice";
+import apibase from "../../redux/apibase";
+import { setCookie } from "../../shared/cookies";
 
 const Login = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const loginform = {
     email: "",
@@ -20,16 +19,46 @@ const Login = () => {
     setMember({ ...member, [name]: value });
   };
 
+  //
+  //
+  //
+  //
+  //
   console.log(member);
 
   const Login = (event) => {
     event.preventDefault();
-    dispatch(
-      loginUser({
-        memberid: member.email,
-        password: member.password,
+    const temp = {
+      memberid: member.email,
+      password: member.password,
+    };
+    // 이메일 비밀번호 BE양식 : nickname:~, password: ~
+    const data = apibase
+      .post("api/member/login", temp)
+      .then((res) => {
+        //const { accessToken } = res.data;
+        //axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
+        // accessToken을 헤더에 붙여주는 과정이지만, instance에서 이미실행
+        console.log(res);
+        console.log(res.data);
+        console.log(res.request.getResponseHeader("authorization"));
+        // access 토큰을 받아와짐.
+        setCookie("token", res.request.getResponseHeader("authorization"));
+        setCookie(
+          "refreshToken",
+          res.request.getResponseHeader("refresh-token")
+        );
+        sessionStorage.setItem("nickname", res.data.data.nickname);
+        alert(`${sessionStorage.nickname}님 환영합니다.`);
+        window.location.replace("/");
+        // setCookie를 사용해 application>cookie에 토큰 2개담기
+        if (res.data.success === false) alert(res.data.error.message);
+        //setInterval(onSilentRefresh, 180000);
+        // 3분뒤 로그인 연장
       })
-    );
+      .catch((error) => {
+        alert("로그인 정보를 받아올 수 없습니다!");
+      });
   };
 
   return (
