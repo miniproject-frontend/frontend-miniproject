@@ -1,3 +1,18 @@
 {
-  "write": []
+  "write": [
+    {
+      "id": 0.12100946868193851,
+      "title": "asgasdf",
+      "content": "fggdfhdfhjfdgh",
+      "image": null,
+      "category": "1"
+    },
+    {
+      "id": 0.5489323902763892,
+      "title": "dfghdfghf",
+      "content": "dfhdgdsfg",
+      "image": null,
+      "category": "2"
+    }
+  ]
 }

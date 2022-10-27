@@ -1,17 +1,6 @@
 import apibase from "../apibase";
 import { createSlice } from "@reduxjs/toolkit";
 
-// const initialState = {
-//   list: [
-//     {
-//       id: "",
-//       memberId: "",
-//       nickname: "",
-//       password: "",
-//     },
-//   ],
-// };
-
 export const createUser = (data) => {
   return async function (dispatch) {
     console.log(data);
@@ -65,19 +54,6 @@ export const loginUser = (data) => {
       });
   };
 };
-
-// const JoinSlice = createSlice({
-//   name: "joinReducer",
-//   initialState,
-//   reducers: {
-//     joinGogo: (state, action) => {
-//       console.log(action.payload);
-//       state.list = [...state.list, action.payload];
-//     },
-//   },
-// });
-
-// export const { joinGogo } = JoinSlice.actions;
 
 const initialState = {
   users: [],

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { __writePost } from "../../redux/modules/postSlice";
-import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 // import shortid from "shortid";
 import "./write.css";
@@ -25,6 +24,7 @@ const Write = () => {
     if (title === "" || content === "") return;
     dispatch(
       __writePost({
+        id: Math.random(),
         title,
         content,
         image,
@@ -92,7 +92,6 @@ const Write = () => {
           <button className="upButton">글쓰기</button>
         </form>
       </div>
-      <Footer />
     </div>
   );
 };

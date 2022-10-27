@@ -1,15 +1,11 @@
-import React, { useEffect } from "react";
 import "./Login.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { loginUser } from "../../redux/modules/userSlice";
 import apibase from "../../redux/apibase";
-import { useCookies } from "react-cookie";
-import Cookies from "universal-cookie";
+import { setCookie } from "../../shared/cookies";
 
 const Login = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const loginform = {
     email: "",
@@ -18,36 +14,17 @@ const Login = () => {
 
   const [member, setMember] = useState(loginform);
 
-  const [cookies, setCookie, removeCookie] = useCookies(["cook"]);
-
-  const cookie = new Cookies();
-
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
     setMember({ ...member, [name]: value });
   };
 
+  //
+  //
+  //
+  //
+  //
   console.log(member);
-
-  // useEffect(() => {
-  //   cookie.remove("token");
-  //   cookie.remove("refreshToken");
-  //   cookie.remove("nickname");
-  // });
-
-  // useEffect(() => {
-  //   sessionStorage.clear();
-  // });
-
-  // const Login = (event) => {
-  //   event.preventDefault();
-  //   dispatch(
-  //     loginUser({
-  //       memberid: member.email,
-  //       password: member.password,
-  //     })
-  //   );
-  // };
 
   const Login = (event) => {
     event.preventDefault();
@@ -56,7 +33,6 @@ const Login = () => {
       password: member.password,
     };
     // 이메일 비밀번호 BE양식 : nickname:~, password: ~
-
     const data = apibase
       .post("api/member/login", temp)
       .then((res) => {

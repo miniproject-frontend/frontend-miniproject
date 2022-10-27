@@ -28,8 +28,8 @@ const Header = () => {
     <div className="headerBox">
       <img className="logo" src="/HTlogo.png" onClick={() => navigate("/")} />
       <div className="categoryBox">
-        <Link to="/category1">카테고리1</Link>
-        <Link to="/category2">카테고리2</Link>
+        <Link to="/category1">홈트레이닝</Link>
+        <Link to="/category2">운동게시판</Link>
       </div>
       <div className="rightHeader">
         <p>{nickname}님 환영합니다</p>
